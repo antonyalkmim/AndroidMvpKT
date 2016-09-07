@@ -1,20 +1,24 @@
 [{
 	"id":1,
 	"name":"Pikachu",
-	"thumbUrl":"http://im.ziffdavisinternational.com/ign_br/screenshot/default/025pikachu-os-anime-4_3pym.png"
+	"thumbUrl":"http://im.ziffdavisinternational.com/ign_br/screenshot/default/025pikachu-os-anime-4_3pym.png",
+    "description" : "Eletric Pokemon"
 },
 {
     "id":2,
     "name":"Charmander",
-    "thumbUrl":"https://oraporra.files.wordpress.com/2008/12/charmander.gif?w=468"
+    "thumbUrl":"https://oraporra.files.wordpress.com/2008/12/charmander.gif?w=468",
+    "description" : "Fire pokemon"
 },
 {
     "id":3,
     "name":"Bulbasaur",
-    "thumbUrl":"http://vignette3.wikia.nocookie.net/pokemon/images/1/12/001Bulbasaur_AG_anime_2.png/revision/20150101074702"
+    "thumbUrl":"http://vignette3.wikia.nocookie.net/pokemon/images/1/12/001Bulbasaur_AG_anime_2.png/revision/20150101074702",
+    "description" : "Grass pokemon"
 },
 {
     "id":4,
     "name":"Squirtle",
-    "thumbUrl":"http://vignette2.wikia.nocookie.net/pokemon/images/e/e7/007Squirtle_OS_anime.png/revision/latest?cb=20140916184226"
+    "thumbUrl":"http://vignette2.wikia.nocookie.net/pokemon/images/e/e7/007Squirtle_OS_anime.png/revision/latest?cb=20140916184226",
+    "description" : "Turtle Pokemon"
 }]

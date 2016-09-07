@@ -1,6 +1,5 @@
 package br.com.coderup.pokemons.app.pokemons.presenters
 
-import android.content.Context
 import android.util.Log
 import br.com.coderup.pokemons.PokemonsApplication
 import br.com.coderup.pokemons.app.pokemons.PokemonsMvp
@@ -9,22 +8,15 @@ import rx.Observable
 import rx.Subscriber
 import rx.Subscription
 import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
 import java.util.*
 
 class PokemonsPresenter : PokemonsMvp.Presenter {
 
-    private var context : Context
     private var pokemonsView : PokemonsMvp.View? = null
 
     private var subscription : Subscription? = null
 
-
     private var pokemons : List<Pokemon> = Collections.emptyList()
-
-    constructor(context: Context){
-        this.context = context
-    }
 
     /**
      * Presenter Methods
@@ -35,12 +27,11 @@ class PokemonsPresenter : PokemonsMvp.Presenter {
 
         subscription?.unsubscribe()
 
-        val service = PokemonsApplication
-                .getContext(context)
-                .getPokemonsServices()
+        val application = PokemonsApplication.getContext(pokemonsView!!.getContext())
+        val service = application.getPokemonsServices()
 
         val pokemonsFromApi = service.listPokemons()
-                .subscribeOn(Schedulers.io())
+                .subscribeOn(application.getDefaultScheduler())
 
         subscription = Observable
                 .zip(Observable.just(pokemons), pokemonsFromApi, { it, it2 -> it + it2 })
