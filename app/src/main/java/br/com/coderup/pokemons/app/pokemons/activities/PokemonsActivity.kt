@@ -1,5 +1,6 @@
 package br.com.coderup.pokemons.app.pokemons.activities
 
+import android.app.Activity
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -22,7 +23,7 @@ class PokemonsActivity : AppCompatActivity() , PokemonsMvp.View {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.pokemons_activity)
 
-        presenter = PokemonsPresenter(this)
+        presenter = PokemonsPresenter()
         presenter!!.attachView(this)
 
         setupRecyclerView(binding?.pokemonsRecyclerView)
@@ -61,7 +62,9 @@ class PokemonsActivity : AppCompatActivity() , PokemonsMvp.View {
     }
 
     override fun navigateToPokemonDetail(pokemon: Pokemon) {
-        //TODO: go to detail activity
-        Toast.makeText(this, pokemon.name, Toast.LENGTH_LONG).show()
+        PokemonDetailActivity.navigateTo(this, pokemon)
     }
+
+    override fun getContext(): Activity = this
+
 }
